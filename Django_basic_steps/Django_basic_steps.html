@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Django basic steps</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="static/css/main.css">
+        <script type="text/javascript" src="static/js/main.js"></script>
+    </head>
+    <body class="container">
+        <h1>Django Basic Steps</h1>
+        <div class="block">
+            <h2 class="text-info">Virtual Environment
+                <button class="btn btn-sm btn-secondary block-btn">
+                    Show/Hide
+                </button>
+            </h2>
+            <ol class="block-content">
+                <li>
+                    <h4>Create Virtual Environment</h4>
+                    <p>cmd: <code>...path\Project>python –m venv virtual</code></p>
+                    <p>"virtual" is a name, It can be "anything"</p>
+                </li>
+                <li>
+                    <h4>Activate Virtual Environment</h4>
+                    <p>cmd: <code>...path\Project>virtual\Scripts\activate</code></p>
+                </li>
+            </ol>
+        </div>
+
+        <div class="block">
+            <h2 class="text-info">Django Installation
+                <button class="btn btn-sm btn-secondary block-btn">
+                    Show/Hide
+                </button>
+            </h2>
+            <ol class="block-content">
+                <li>
+                    <h4>Install</h4>
+                    <p>cmd: <code>...path\Project>pip install Django</code></p>
+                </li>
+                <li>
+                    <h4>Verify Installation</h4>
+                    <p>cmd: <code>...path\Project>django-admin --version</code></p>
+                </li>
+                <li>
+                    <h4>Auto-generate requirements.txt</h4>
+                    <p>(option1)cmd: <code>...path\Project>pip freeze > requirements.txt</code></p>
+                    <p>(option2)cmd:
+                        <code>...path\Project>pip install pipreqs</code>
+                        <br>
+                        <code>...path\Project>pipreqs /path/to/project</code>
+                    </p>
+                </li>
+                <li>
+                    <h4>Auto-install from requirements.txt</h4>
+                    <p>cmd: <code>...path\Project>pip install -r requirements.txt</code></p>
+                </li>
+            </ol>
+            </div>
+
+            <div class="block">
+            <h2 class="text-info">Django Create Project
+                <button class="btn btn-sm btn-secondary block-btn">
+                    Show/Hide
+                </button>
+            </h2>
+            <ol class="block-content">
+                <li>
+                    <h4>Create Project's Container</h4>
+                    <p>cmd: <code>...path\Project>django-admin startproject containerName</code></p>
+                    <p>"containerName" can be anything, inside it are the project files</p>
+                </li>
+                <li>
+                    <h4>Check Temporary Server</h4>
+                    <p>cmd: <code>...path\Project>py manage.py runserver</code></p>
+                </li>
+                <li>
+                    <h4>Create App</h4>
+                    <p>cmd: <code>...path\Project>py manage.py startapp appName</code></p>
+                    <p>"appName" can be anything. An app can be in multiple projects.</p>
+                </li>
+                <li>
+                    <h4>Write View.py for test</h4>
+                    <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial01/#write-your-first-view">
+                        Edit view.py guidelines
+                    </a>
+                    <p>This is optional in order to display somthing on the browser</p>
+                </li>
+            </ol>
+            </div>
+
+            <div class="block">
+            <h2 class="text-info">Django Databases
+                <button class="btn btn-sm btn-secondary block-btn">
+                    Show/Hide
+                </button>
+            </h2>
+            <ol class="block-content">
+                <li>
+                    <h4>Database Setup</h4>
+                    <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial02/#database-setup">
+                        Guidelines
+                    </a>
+                </li>
+                <li>
+                    <h4>Create Models</h4>
+                    <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-models">
+                        Example
+                    </a>
+                </li>
+                <li>
+                    <h4>Update Setting & Activate Models</h4>
+                    <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial02/#activating-models">
+                        Guidelines
+                    </a>
+                    <hr>
+                    <h6>Inform Django - Models Create/Change</h6>
+                    <p>cmd: <code>...path\Project>py manage.py makemigrations appName</code>
+                        The same applies when Models do not exist yet</p>
+                    <hr>
+                    <h6>Preview Database Details</h6>
+                    <p>cmd: <code>...path\Project>py manage.py sqlmigrate appName fileNumber</code>
+                        "fileNumber" is the number in the database filename, e.g. appName\migration\0001_initial.py</p>
+                    <hr>
+                    <h6>Check for errors</h6>
+                    <p>cmd: <code>...path\Project>python manage.py check</code></p>
+                    <hr>
+                    <h6>Apply Model Changes to Database</h6>
+                    <p>cmd: <code>...path\Project>python manage.py migrate</code></p>
+                    <h6>Three step guide</h6>
+                    <hr>
+                    <ul>
+                        <li>Change your models (in models.py).</li>
+                        <li>Run python manage.py makemigrations to create migrations for those changes</li>
+                        <li>Run python manage.py migrate to apply those changes to the database</li>
+                    </ul>
+                    <p>The reason that there are separate commands to make and apply migrations
+                        is because you’ll commit migrations to your version control system and ship them with your app</p>
+                </li>
+
+            </ol>
+            </div>
+    </body>
+</html>
