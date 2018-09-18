@@ -11,7 +11,7 @@
     </head>
     <body class="container">
         <h1>Django Basic Steps</h1>
-        <div class="block">
+        <div class="block row">
             <h2 class="text-info">Virtual Environment
                 <button class="btn btn-sm btn-secondary block-btn">
                     Show/Hide
@@ -30,7 +30,7 @@
             </ol>
         </div>
 
-        <div class="block">
+        <div class="block row">
             <h2 class="text-info">Django Installation
                 <button class="btn btn-sm btn-secondary block-btn">
                     Show/Hide
@@ -59,9 +59,9 @@
                     <p>cmd: <code>...path\Project>pip install -r requirements.txt</code></p>
                 </li>
             </ol>
-            </div>
+        </div>
 
-            <div class="block">
+            <div class="block row">
             <h2 class="text-info">Django Create Project
                 <button class="btn btn-sm btn-secondary block-btn">
                     Show/Hide
@@ -70,16 +70,16 @@
             <ol class="block-content">
                 <li>
                     <h4>Create Project's Container</h4>
-                    <p>cmd: <code>...path\Project>django-admin startproject containerName</code></p>
-                    <p>"containerName" can be anything, inside it are the project files</p>
+                    <p>cmd: <code>...path\Project>django-admin startproject contName</code></p>
+                    <p>"contName"(containerName) can be anything, inside it are the project files</p>
                 </li>
                 <li>
                     <h4>Check Temporary Server</h4>
-                    <p>cmd: <code>...path\Project>py manage.py runserver</code></p>
+                    <p>cmd: <code>...path\Project\contName>py manage.py runserver</code></p>
                 </li>
                 <li>
                     <h4>Create App</h4>
-                    <p>cmd: <code>...path\Project>py manage.py startapp appName</code></p>
+                    <p>cmd: <code>...path\Project\contName>py manage.py startapp appName</code></p>
                     <p>"appName" can be anything. An app can be in multiple projects.</p>
                 </li>
                 <li>
@@ -87,61 +87,183 @@
                     <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial01/#write-your-first-view">
                         Edit view.py guidelines
                     </a>
-                    <p>This is optional in order to display somthing on the browser</p>
+                    <p>This is optional in order to display something on the browser</p>
                 </li>
             </ol>
             </div>
 
-            <div class="block">
-            <h2 class="text-info">Django Databases
-                <button class="btn btn-sm btn-secondary block-btn">
-                    Show/Hide
-                </button>
-            </h2>
-            <ol class="block-content">
-                <li>
-                    <h4>Database Setup</h4>
-                    <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial02/#database-setup">
-                        Guidelines
-                    </a>
-                </li>
-                <li>
-                    <h4>Create Models</h4>
-                    <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-models">
-                        Example
-                    </a>
-                </li>
-                <li>
-                    <h4>Update Setting & Activate Models</h4>
-                    <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial02/#activating-models">
-                        Guidelines
-                    </a>
-                    <hr>
-                    <h6>Inform Django - Models Create/Change</h6>
-                    <p>cmd: <code>...path\Project>py manage.py makemigrations appName</code>
-                        The same applies when Models do not exist yet</p>
-                    <hr>
-                    <h6>Preview Database Details</h6>
-                    <p>cmd: <code>...path\Project>py manage.py sqlmigrate appName fileNumber</code>
-                        "fileNumber" is the number in the database filename, e.g. appName\migration\0001_initial.py</p>
-                    <hr>
-                    <h6>Check for errors</h6>
-                    <p>cmd: <code>...path\Project>python manage.py check</code></p>
-                    <hr>
-                    <h6>Apply Model Changes to Database</h6>
-                    <p>cmd: <code>...path\Project>python manage.py migrate</code></p>
-                    <h6>Three step guide</h6>
-                    <hr>
-                    <ul>
-                        <li>Change your models (in models.py).</li>
-                        <li>Run python manage.py makemigrations to create migrations for those changes</li>
-                        <li>Run python manage.py migrate to apply those changes to the database</li>
-                    </ul>
-                    <p>The reason that there are separate commands to make and apply migrations
-                        is because you’ll commit migrations to your version control system and ship them with your app</p>
-                </li>
-
-            </ol>
+            <div class="block row">
+                <h2 class="text-info">Django Databases
+                    <button class="btn btn-sm btn-secondary block-btn">
+                        Show/Hide
+                    </button>
+                </h2>
+                <ol class="block-content">
+                    <li>
+                        <h4>Setup Database</h4>
+                        <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial02/#database-setup">
+                            Guidelines
+                        </a>
+                    </li>
+                    <li>
+                        <h4>Create Models</h4>
+                        <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-models">
+                            Example
+                        </a>
+                    </li>
+                    <li>
+                        <h4>Update Setting & Activate Models</h4>
+                        <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial02/#activating-models">
+                            Guidelines
+                        </a>
+                        <hr>
+                        <h6>Inform Django - Models Create/Change</h6>
+                        <p>cmd: <code>...path\Project\contName>py manage.py makemigrations appName</code><br>
+                            The same applies when Models do not exist yet</p>
+                        <hr>
+                        <h6>Preview Database Details</h6>
+                        <p>cmd: <code>...path\Project\contName>py manage.py sqlmigrate appName fileNumber</code><br>
+                            "fileNumber" is the number in the database filename, e.g. appName\migration\0001_initial.py</p>
+                        <hr>
+                        <h6>Check for errors</h6>
+                        <p>cmd: <code>...path\Project\contName>python manage.py check</code></p>
+                        <hr>
+                        <h6>Apply Model Changes to Database</h6>
+                        <p>cmd: <code>...path\Project\contName>python manage.py migrate</code></p>
+                        <h6>Three step guide</h6>
+                        <hr>
+                        <ul>
+                            <li>Change your models (in models.py).</li>
+                            <li>Run python manage.py makemigrations to create migrations for those changes</li>
+                            <li>Run python manage.py migrate to apply those changes to the database</li>
+                        </ul>
+                        <p>The reason that there are separate commands to make and apply migrations
+                            is because you’ll commit migrations to your version control system and ship them with your app</p>
+                    </li>
+                </ol>
             </div>
+
+            <div class="block row">
+                <h2 class="text-info">Django Admin
+                    <button class="btn btn-sm btn-secondary block-btn">
+                        Show/Hide
+                    </button>
+                </h2>
+                <ol class="block-content">
+                    <li>
+                        <h4>Philosophy</h4>
+                        <p>- Generating admin sites for your staff or clients to
+                            add, change, and delete content is tedious work that
+                            doesn’t require much creativity. For that reason,
+                            Django entirely automates creation of admin interfaces
+                            for models.<br>
+                            - Django was written in a newsroom environment,
+                            with a very clear separation between “content publishers”
+                            and the “public” site. Site managers use the system
+                            to add news stories, events, sports scores, etc., and
+                            that content is displayed on the public site. Django solves
+                            the problem of creating a unified interface for site
+                            administrators to edit content.<br>
+                            - The admin isn’t intended to be used by site
+                            visitors. It’s for site managers.</p>
+                    </li>
+                    <li>
+                        <h4>Create Admin user</h4>
+                        <p>cmd: <code>...path\Project\contName>py manage.py createsuperuser</code></p>
+                        <p>Then <strong>Set Username, Email address
+                            & Password</strong>, they will automatically be asked</p>
+                    </li>
+                    <li>
+                        <h4>Display Admin Page</h4>
+                        <p>If <strong>development server</strong> is
+                            <strong>not running</strong>:</p>
+                        <p>cmd: <code>...path\Project\contName>py manage.py runserver</code></p>
+                    </li>
+                    <li>
+                        <h4>Make the "App" modifiable by Admin</h4>
+                        <p><strong>.../app/admin.py(write code):</strong><br>
+                            <code>from django.contrib import admin<br>
+                            from .models import Question<br>
+                            admin.site.register(Question)</code><br>
+                            "Question" is an example of a
+                            <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-models">
+                            Model</a></p>
+                        <p>To be able to edit a Model(eg. Question), it must
+                            be registered here</p>
+                    </li>
+                    <li>
+                        <h4>Edit Models</h4>
+                        <p>The data of the Models (ig. <strong>field values</strong>) can be altered,<br>
+                            but the structure of the Models (ig. <strong>field attributes</strong>) cannot</p>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="block row">
+                <h2 class="text-info">Django Views & Templates
+                    <button class="btn btn-sm btn-secondary block-btn">
+                        Show/Hide
+                    </button>
+                </h2>
+                <ol class="block-content">
+                    <li>
+                        <h4>Logic diagram</h4>
+                        <p><strong>models.py</strong> ->
+                            <strong>views.py</strong> ->
+                            <strong>urls.py</strong></p>
+                            <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial03/#writing-more-views">
+                                Example</a>
+                    </li>
+                    <li>
+                        <h4>Templates</h4>
+                        <p>The <strong>path</strong> and <strong>files</strong> have to be manually created</p>
+                        <p> appName /
+                            <strong>templates</strong> /
+                            <strong>appName</strong> /
+                            <strong>file.html</strong></p>
+                        <hr>
+                        <h6>URLs in templates</h6>
+                        <p>(option1) <strong>Hardcoded</strong> url in file.html:<br>
+                            <code>&lt;li&gt;
+                                <strong>&lt;a href="/example/{{ modelExample.model_field }}"&gt;</strong>
+                                {{ modelExample.model_field_2 }}&lt;/a&gt;&lt;/li&gt;
+                            </code></p>
+                        <p>(option2) <strong>Dynamic</strong> url in file.html:<br>
+                            <code>&lt;li&gt;
+                                <strong>&lt;a href="{% url 'indexExampleName' modelExample.model_field %}"&gt;</strong>
+                                {{ modelExample.model_field_2 }}&lt;/a&gt;&lt;/li&gt;
+                            </code></p>
+                        <p><strong>urls.py</strong>: ...<br>
+                            <code>path(
+                                <strong>'example/&lt;int:a_field>/'</strong>,
+                                views.indexExample,
+                                <strong>name='indexExampleName'</strong>)
+                            </code><br>...</p>
+                        <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial03/#removing-hardcoded-urls-in-templates">
+                            Example</a>
+                    </li>
+                    <li>
+                        <h4>Render page</h4>
+                        <p>return -> render(
+                            <strong>request</strong>,
+                            <strong>'template'</strong>,
+                            <strong>context</strong> )</p>
+                        <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial03/#writing-more-views">
+                            Example</a>
+                        <hr>
+                        <p><strong>request</strong>: stays as it is</p>
+                        <hr>
+                        <p><strong>template</strong> <- 'appName/file.html'</p>
+                        <hr>
+                        <p><strong>context</strong> <- get_object_or_404(
+                            <strong>Model</strong>,
+                            <strong>somekey = Model's field</strong> )</p>
+                        <a href="https://docs.djangoproject.com/en/2.1/intro/tutorial03/#a-shortcut-get-object-or-404">
+                            Example</a>
+
+                    </li>
+                </ol>
+            </div>
+
     </body>
 </html>
