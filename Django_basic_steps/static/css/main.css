@@ -3,5 +3,9 @@ body {
 }
 
 h4 {
-    color:lightblue;
+    color:orange;
+}
+
+.displayContainer {
+    border: 1px solid red;
 }
