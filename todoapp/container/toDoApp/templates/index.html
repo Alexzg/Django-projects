@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+	<title>toDoApp</title>
+	{% load static %}
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+	<script src="{% static 'js/index.js' %}"></script>
+</head>
+<body>
+<div django-app="TaskManager">		
+	<div class="container"">
+			<div class="content">
+			<h1>Ucair - TodoApp</h1>
+			<form class="dataEntryContainer rounded-lg" action="{% url 'addTask' %}" method="post">
+			{% csrf_token %}
+				<div class="row">
+					<div class="col-sm-2">
+					<label for="title">Title</label></div>
+					<div class="col">
+					<input type="text" id="title" class="taskTitle" placeholder="Give the title..." name="title" required></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+					<label for="content">Description</label></div>
+					<div class="col">
+					<input type="text" id="content" class="taskContent" placeholder="Give details..." name="content"></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+					<label for="category">Category</label></div>
+					<div class="col">
+					<select id="category" class="taskCategory" name="category">
+						<option  value="General" name="General">General</option>
+						<option  value="Personal" name="Personal">Personal</option>
+						<option  value="Work" name="Work">Work</option>
+						<option  value="Family" name="Family">Family</option>
+					</select></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+					<label for="startDate">Start Date</label></div>
+					<div class="col">
+					<input type="date" id="startDate" class="taskDate" name="startDate" required></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+					<label for="dueDate">Due Date</label></div>
+					<div class="col">
+					<input type="date" id="dueDate" class="taskDate" name="dueDate" required></div>
+				</div>
+				<div class="">
+					<button class="btn btn-secondary" type="submit">+ Add task</button>
+				</div>
+			</form>
+			<hr>
+			<div class="listContainer rounded-lg">
+			{% for task in tasks %}
+			<h3 class="">- {{task.title}} | {{task.category}}</h3>
+			{% if not task.complete %}
+			<p class="">{{task.content}}</p>
+			<p class="">{{task.start_date}} - {{task.due_date}}</p>
+			<a href="{% url 'completeTask' task.id %}"><button class="btn btn-sm btn-success" type="submit">Done</button></a>
+			{% else %}
+			<p class="">Done!</p>
+			{% endif %}
+			<a href="{% url 'deleteTask' task.id %}"><button class="btn btn-sm btn-outline-danger" type="submit">- Delete</button></a>
+			{% endfor %}
+			</div>
+			</div>
+ </div>
+</div>
+</body>
+</html>
