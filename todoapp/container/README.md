@@ -4,7 +4,7 @@
 ### 1. Views/Function
 #### a. Add new task (url='/add')
 #### b. Mark task as done (url='/complete/task_id')
-#### c. Delete task url='/delete/task_id')
+#### c. Delete task url=('/delete/task_id')
 
 ### 2. Model, Entry data for task
 #### a. "Title", string (required(frontend))
